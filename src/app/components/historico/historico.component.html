@@ -1,0 +1,11 @@
+<h2>Histórico de Transações</h2>
+
+<ul>
+  <li *ngFor="let transacao of historicoTransacoes">
+    <strong>Data:</strong> {{ transacao.date | date: 'short' }}<br />
+    <strong>Valor em Ouro Real:</strong> {{ transacao.valorEmOuro }}<br />
+    <strong>Valor em Tibares:</strong> {{ transacao.valorEmTibar }}
+  </li>
+</ul>
+
+<p *ngIf="historicoTransacoes.length === 0">Nenhuma transação registrada.</p>
