@@ -1,7 +1,8 @@
 <mat-sidenav-container class="main-container">
   <!-- Menu Lateral -->
-  <mat-sidenav #sidenav mode="side" opened>
+  <mat-sidenav #sidenav mode="side" [mode]="isSmallScreen ? 'over' : 'side'" [opened]="!isSmallScreen" class="sidenav">
     <mat-nav-list>
+      <h3 class="menu-category">Operações</h3>
       <a mat-list-item routerLink="/painel-conversao" routerLinkActive="active">
         <mat-icon>swap_horiz</mat-icon>
         Painel de Conversão
@@ -10,6 +11,10 @@
         <mat-icon>add_circle</mat-icon>
         Registrar Transação
       </a>
+
+      <mat-divider></mat-divider>
+
+      <h3 class="menu-category">Histórico</h3>
       <a mat-list-item routerLink="/historico" routerLinkActive="active">
         <mat-icon>history</mat-icon>
         Histórico de Transações
@@ -21,11 +26,16 @@
   <mat-sidenav-content>
     <!-- Barra de Navegação -->
     <mat-toolbar color="primary" class="toolbar">
-      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+      <button
+        mat-icon-button
+        class="menu-button modern-sandwich"
+        [class.active]="isMenuOpen"
+        (click)="toggleMenu(); sidenav.toggle()"
+        >
         <mat-icon>menu</mat-icon>
       </button>
       <span class="title">Gestão de Conversões</span>
-    </mat-toolbar>
+    </mat-toolbar>    
 
     <!-- Área de Conteúdo -->
     <div class="content">

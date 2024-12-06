@@ -1,4 +1,4 @@
-/* Container Principal */
+/* Configuração geral */
 .main-container {
   height: 100vh;
 }
@@ -14,12 +14,85 @@
 
 .menu-button {
   margin-right: 16px;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: bold;
-  flex-grow: 1; /* Garante que o título ocupa o espaço disponível */
-  text-align: center; /* Alinha o título à esquerda */
   color: white;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Menu Lateral */
+.sidenav {
+  width: 250px;
+  background-color: #3f51b5; /* Fundo do menu lateral */
+  color: white;
+}
+
+.menu-category {
+  padding: 16px;
+  margin: 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+mat-list-item {
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+mat-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+mat-list-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+
+/* Conteúdo Principal */
+.content {
+  padding: 20px;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+}
+
+/* Botão Sanduíche */
+.menu-button {
+  margin-right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Faz o botão ficar redondo */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente translúcido */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Fundo mais claro no hover */
+  transform: scale(1.1); /* Botão cresce levemente */
+}
+
+.menu-button:active {
+  transform: scale(0.9); /* Botão reduz no clique */
+}
+
+.mat-icon {
+  color: white; /* Ícone na cor branca */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+/* Adiciona rotação ao ícone quando clicado */
+.menu-button.active .mat-icon {
+  transform: rotate(90deg); /* Gira o ícone em 90 graus */
+  transition: transform 0.3s ease;
 }
