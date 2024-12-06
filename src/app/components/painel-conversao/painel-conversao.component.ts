@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card'; 
+import { MatIconModule } from '@angular/material/icon'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importa o FormsModule para usar [(ngModel)]
 
 @Component({
   selector: 'app-painel-conversao',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule, 
+    FormsModule,
+    MatCardModule, 
+    MatIconModule,],
   templateUrl: './painel-conversao.component.html',
   styleUrls: ['./painel-conversao.component.css'],
 })
@@ -14,7 +20,7 @@ export class PainelConversaoComponent {
   moedaDestino = 'Tibar';
   valorOrigem: number | null = null;
   valorConvertido: number | null = null;
-  taxaAtual = 2.5; // Taxa inicial padrão
+  taxaAtual = 2.5;
 
   atualizarTaxa(): void {
     const novaTaxa = parseFloat(
@@ -28,16 +34,20 @@ export class PainelConversaoComponent {
     }
   }
 
-  registrarTransacao(): void {
-    if (this.valorOrigem === null || this.valorOrigem <= 0) {
+  realizarConversao(): void {
+    if (!this.valorOrigem || this.valorOrigem <= 0) {
       alert('Por favor, insira um valor válido.');
       return;
     }
 
-    this.valorConvertido = this.moedaOrigem === 'Ouro Real'
-      ? this.valorOrigem * this.taxaAtual
-      : this.valorOrigem / this.taxaAtual;
+    if (this.moedaOrigem === this.moedaDestino) {
+      alert('Por favor, selecione moedas diferentes.');
+      return;
+    }
 
-    alert('Conversão realizada com sucesso!');
+    this.valorConvertido =
+      this.moedaOrigem === 'Ouro Real'
+        ? this.valorOrigem * this.taxaAtual
+        : this.valorOrigem / this.taxaAtual;
   }
 }

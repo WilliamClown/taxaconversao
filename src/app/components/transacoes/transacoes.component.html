@@ -1,6 +1,60 @@
-<h2>Registrar Transação</h2>
-<label>
-  Valor em Ouro Real:
-  <input type="number" [(ngModel)]="valorEmOuro" /> <!-- ngModel usado aqui -->
-</label>
-<button (click)="registrarTransacao()">Registrar</button>
+<div class="page-container">
+  <!-- Cabeçalho -->
+  <div class="header">
+    <h1>Registrar Transação</h1>
+    <p>Insira os dados necessários para realizar uma transação entre moedas.</p>
+  </div>
+
+  <!-- Formulário de Registro -->
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>Dados da Transação</mat-card-title>
+      <mat-card-subtitle>Preencha os campos abaixo e registre a transação</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Origem:</strong>
+            <select [(ngModel)]="moedaOrigem" name="moedaOrigem">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <strong>Valor:</strong>
+            <input
+              type="number"
+              [(ngModel)]="valorOrigem"
+              name="valorOrigem"
+              placeholder="Digite o valor"
+            />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Destino:</strong>
+            <select [(ngModel)]="moedaDestino" name="moedaDestino">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="registrarTransacao()"
+        class="action-button"
+      >
+        Registrar Transação
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

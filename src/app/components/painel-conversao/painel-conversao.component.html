@@ -1,39 +1,71 @@
-<h2>Painel de Conversão</h2>
+<div class="page-container">
+  <!-- Cabeçalho -->
+  <div class="header">
+    <h1>Painel de Conversão</h1>
+    <p>Converta valores entre Ouro Real e Tibar utilizando a taxa de conversão atual.</p>
+  </div>
 
-<!-- Consulta de Taxa -->
-<section>
-  <h3>Consulta de Taxa</h3>
-  <p>Taxa Atual: 1 Ouro Real = {{ taxaAtual }} Tibares</p>
-  <button (click)="atualizarTaxa()">Atualizar Taxa</button>
-</section>
+  <!-- Consulta de Taxa -->
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>Consulta de Taxa</mat-card-title>
+      <mat-card-subtitle>Atualize e visualize a taxa atual de conversão</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Taxa Atual:</strong> 1 Ouro Real = {{ taxaAtual }} Tibares</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="atualizarTaxa()">Atualizar Taxa</button>
+    </mat-card-actions>
+  </mat-card>
 
-<!-- Conversão de Moeda -->
-<section>
-  <h3>Realização de Conversão</h3>
-  <label>
-    Moeda de Origem:
-    <select [(ngModel)]="moedaOrigem">
-      <option>Ouro Real</option>
-      <option>Tibar</option>
-    </select>
-  </label>
+  <!-- Conversão de Valores -->
+  <mat-card class="mat-elevation-z4">
+    <mat-card-header>
+      <mat-card-title>Realizar Conversão</mat-card-title>
+      <mat-card-subtitle>Preencha os campos abaixo para converter valores</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Origem:</strong>
+            <select [(ngModel)]="moedaOrigem" name="moedaOrigem">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
 
-  <label>
-    Valor:
-    <input type="number" [(ngModel)]="valorOrigem" />
-  </label>
+        <div class="form-group">
+          <label>
+            <strong>Valor:</strong>
+            <input
+              type="number"
+              [(ngModel)]="valorOrigem"
+              name="valorOrigem"
+              placeholder="Digite o valor"
+            />
+          </label>
+        </div>
 
-  <label>
-    Moeda de Destino:
-    <select [(ngModel)]="moedaDestino">
-      <option>Ouro Real</option>
-      <option>Tibar</option>
-    </select>
-  </label>
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Destino:</strong>
+            <select [(ngModel)]="moedaDestino" name="moedaDestino">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
 
-  <button (click)="registrarTransacao()">Converter</button>
-
-  <p *ngIf="valorConvertido !== null">
-    Resultado: {{ valorOrigem }} {{ moedaOrigem }} = {{ valorConvertido | number: '1.2-2' }} {{ moedaDestino }}
-  </p>
-</section>
+        <p *ngIf="valorConvertido !== null" class="resultado">
+          Resultado: {{ valorOrigem }} {{ moedaOrigem }} = {{ valorConvertido | number: '1.2-2' }} {{ moedaDestino }}
+        </p>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="realizarConversao()">Converter</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

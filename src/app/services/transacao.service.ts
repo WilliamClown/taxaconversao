@@ -14,26 +14,17 @@ export class TransacaoService {
   private idCounter = 1;
 
   adicionarTransacao(origem: string, destino: string, valor: number): void {
-    this.transacoes.push({
+    const novaTransacao = {
       id: this.idCounter++,
       origem,
       destino,
       valor,
-      data: new Date(),
-    });
+      data: new Date(), // Data e hora da transação
+    };
+    this.transacoes.push(novaTransacao);
   }
-  
 
-  obterTransacoes(): {
-    id: number;
-    origem: string;
-    destino: string;
-    valor: number;
-    data: Date;
-  }[] {
-    return this.transacoes.map(transacao => ({
-      ...transacao,
-      data: new Date(transacao.data), // Garante que data é um objeto Date
-    }));
-  }  
+  obterTransacoes() {
+    return this.transacoes;
+  }
 }

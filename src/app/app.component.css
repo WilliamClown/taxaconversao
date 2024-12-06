@@ -1,24 +1,27 @@
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  nav ul li a.active {
-    font-weight: bold;
-    color: #0056b3;
-  }
-  
+/* Configuração geral do layout */
+.main-container {
+  height: 100vh;
+}
+
+/* Conteúdo principal */
+.content {
+  padding: 20px;
+  background-color: #f4f5f7;
+  min-height: 100vh;
+}
+
+/* Estilo do menu lateral */
+mat-sidenav {
+  width: 250px;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.active {
+  font-weight: bold;
+  color: #3f51b5;
+}

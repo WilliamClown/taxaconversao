@@ -1,9 +1,35 @@
-<nav>
-  <ul>
-    <li><a routerLink="/painel-conversao" routerLinkActive="active">Painel de Conversões</a></li>
-    <li><a routerLink="/transacoes" routerLinkActive="active">Registrar Transações</a></li>
-    <li><a routerLink="/historico" routerLinkActive="active">Visualizar Histórico</a></li>
-  </ul>
-</nav>
+<mat-sidenav-container class="main-container">
+  <!-- Menu Lateral -->
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/painel-conversao" routerLinkActive="active">
+        <mat-icon>swap_horiz</mat-icon>
+        Painel de Conversão
+      </a>
+      <a mat-list-item routerLink="/transacoes" routerLinkActive="active">
+        <mat-icon>add_circle</mat-icon>
+        Registrar Transação
+      </a>
+      <a mat-list-item routerLink="/historico" routerLinkActive="active">
+        <mat-icon>history</mat-icon>
+        Histórico de Transações
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-<router-outlet></router-outlet>
+  <!-- Conteúdo Principal -->
+  <mat-sidenav-content>
+    <!-- Barra de Navegação -->
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Gestão de Conversões</span>
+    </mat-toolbar>
+
+    <!-- Área de Conteúdo -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
