@@ -1,27 +1,25 @@
-/* Configuração geral do layout */
+/* Container Principal */
 .main-container {
   height: 100vh;
 }
 
-/* Conteúdo principal */
-.content {
-  padding: 20px;
-  background-color: #f4f5f7;
-  min-height: 100vh;
+/* Barra de Navegação */
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #3f51b5;
+  color: white;
 }
 
-/* Estilo do menu lateral */
-mat-sidenav {
-  width: 250px;
+.menu-button {
+  margin-right: 16px;
 }
 
-mat-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.active {
+.title {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #3f51b5;
+  flex-grow: 1; /* Garante que o título ocupa o espaço disponível */
+  text-align: center; /* Alinha o título à esquerda */
+  color: white;
 }
