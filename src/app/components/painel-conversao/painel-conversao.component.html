@@ -1,13 +1,13 @@
 <h2>Painel de Conversão</h2>
 
-<!-- Consulta de Taxas -->
+<!-- Consulta de Taxa -->
 <section>
-  <h3>Consulta de Taxas</h3>
+  <h3>Consulta de Taxa</h3>
   <p>Taxa Atual: 1 Ouro Real = {{ taxaAtual }} Tibares</p>
-  <button (click)="abrirModalAtualizarTaxa()">Atualizar Taxa</button>
+  <button (click)="atualizarTaxa()">Atualizar Taxa</button>
 </section>
 
-<!-- Formulário de Conversão -->
+<!-- Conversão de Moeda -->
 <section>
   <h3>Realização de Conversão</h3>
   <label>
@@ -31,10 +31,8 @@
     </select>
   </label>
 
-  <button (click)="realizarConversao()">Converter</button>
+  <button (click)="registrarTransacao()">Converter</button>
 
-  <!-- Resultado -->
-  <p *ngIf="mensagemErro" style="color: red;">{{ mensagemErro }}</p>
   <p *ngIf="valorConvertido !== null">
     Resultado: {{ valorOrigem }} {{ moedaOrigem }} = {{ valorConvertido | number: '1.2-2' }} {{ moedaDestino }}
   </p>

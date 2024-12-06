@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importa o FormsModule
-import { CommonModule } from '@angular/common'; // Importa o CommonModule para diretivas padrão
-import { TransacaoService } from '../../services/transacao.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Importa o FormsModule para usar [(ngModel)]
 
 @Component({
   selector: 'app-painel-conversao',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Inclua FormsModule e CommonModule
+  imports: [CommonModule, FormsModule],
   templateUrl: './painel-conversao.component.html',
   styleUrls: ['./painel-conversao.component.css'],
 })
@@ -14,24 +13,13 @@ export class PainelConversaoComponent {
   moedaOrigem = 'Ouro Real';
   moedaDestino = 'Tibar';
   valorOrigem: number | null = null;
-  taxaAtual = 2.5;
   valorConvertido: number | null = null;
-  mensagemErro = '';
+  taxaAtual = 2.5; // Taxa inicial padrão
 
-  constructor(private transacaoService: TransacaoService) {}
-
-  registrarTransacao() {
-    if (this.valorOrigem !== null && this.valorOrigem > 0) {
-      this.transacaoService.adicionarTransacao(this.valorOrigem, this.taxaAtual);
-      alert('Transação registrada com sucesso!');
-      this.valorOrigem = null;
-    } else {
-      alert('Por favor, insira um valor válido.');
-    }
-  }
-
-  abrirModalAtualizarTaxa() {
-    const novaTaxa = parseFloat(prompt('Informe a nova taxa de conversão:', this.taxaAtual.toString()) || '0');
+  atualizarTaxa(): void {
+    const novaTaxa = parseFloat(
+      prompt('Informe a nova taxa de conversão (Ouro Real para Tibar):', this.taxaAtual.toString()) || '0'
+    );
     if (novaTaxa > 0) {
       this.taxaAtual = novaTaxa;
       alert('Taxa atualizada com sucesso!');
@@ -40,20 +28,16 @@ export class PainelConversaoComponent {
     }
   }
 
-  realizarConversao() {
+  registrarTransacao(): void {
     if (this.valorOrigem === null || this.valorOrigem <= 0) {
-      this.mensagemErro = 'Por favor, insira um valor válido.';
-      this.valorConvertido = null;
+      alert('Por favor, insira um valor válido.');
       return;
     }
 
-    this.mensagemErro = '';
-    if (this.moedaOrigem === 'Ouro Real' && this.moedaDestino === 'Tibar') {
-      this.valorConvertido = this.valorOrigem * this.taxaAtual;
-    } else if (this.moedaOrigem === 'Tibar' && this.moedaDestino === 'Ouro Real') {
-      this.valorConvertido = this.valorOrigem / this.taxaAtual;
-    } else {
-      this.valorConvertido = this.valorOrigem;
-    }
+    this.valorConvertido = this.moedaOrigem === 'Ouro Real'
+      ? this.valorOrigem * this.taxaAtual
+      : this.valorOrigem / this.taxaAtual;
+
+    alert('Conversão realizada com sucesso!');
   }
 }

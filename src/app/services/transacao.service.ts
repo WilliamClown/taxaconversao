@@ -4,37 +4,36 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TransacaoService {
-  private taxaAtual: number = 2.5; // Define uma taxa inicial padrão
-  private transacoes: { date: Date; valorEmOuro: number; valorEmTibar: number }[] = [
-    // Adicione transações iniciais para teste
-    { date: new Date(), valorEmOuro: 100, valorEmTibar: 250 },
-    { date: new Date(), valorEmOuro: 50, valorEmTibar: 125 },
-  ];
+  private transacoes: {
+    id: number;
+    origem: string;
+    destino: string;
+    valor: number;
+    data: Date;
+  }[] = [];
+  private idCounter = 1;
 
-  obterTransacoes() {
-    return this.transacoes.map(transacao => ({
-      ...transacao,
-      date: new Date(transacao.date), // Garante que `date` é um objeto `Date`
-    }));
-  }
-
-  adicionarTransacao(valorEmOuro: number, taxa: number) {
-    const valorEmTibar = valorEmOuro * taxa;
+  adicionarTransacao(origem: string, destino: string, valor: number): void {
     this.transacoes.push({
-      date: new Date(), // Certifique-se de que `date` é sempre um objeto `Date`
-      valorEmOuro,
-      valorEmTibar,
+      id: this.idCounter++,
+      origem,
+      destino,
+      valor,
+      data: new Date(),
     });
   }
   
 
-   // Método para obter a taxa atual
-   obterTaxaAtual(): number {
-    return this.taxaAtual;
-  }
-
-  // Método para atualizar a taxa
-  atualizarTaxa(novaTaxa: number): void {
-    this.taxaAtual = novaTaxa;
-  }
+  obterTransacoes(): {
+    id: number;
+    origem: string;
+    destino: string;
+    valor: number;
+    data: Date;
+  }[] {
+    return this.transacoes.map(transacao => ({
+      ...transacao,
+      data: new Date(transacao.data), // Garante que data é um objeto Date
+    }));
+  }  
 }
