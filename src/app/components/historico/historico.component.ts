@@ -1,13 +1,12 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card'; 
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { TransacaoService } from '../../services/transacao.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.component';
-
 
 @Component({
   selector: 'app-historico',
@@ -16,8 +15,8 @@ import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.comp
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule, 
-    MatIconModule, 
+    MatCardModule,
+    MatIconModule,
   ],
   templateUrl: './historico.component.html',
   styleUrls: ['./historico.component.css'],
@@ -58,5 +57,5 @@ export class HistoricoComponent implements OnInit, AfterViewInit {
     link.setAttribute('href', url);
     link.setAttribute('download', 'transacoes.csv');
     link.click();
-  }  
+  }
 }
