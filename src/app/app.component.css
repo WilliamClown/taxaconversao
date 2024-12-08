@@ -96,3 +96,38 @@ mat-list-item.active {
   transform: rotate(90deg); /* Gira o ícone em 90 graus */
   transition: transform 0.3s ease;
 }
+
+/* Estilo geral do modal */
+.modal-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+/* Cabeçalho do modal */
+.modal-card-header {
+  text-align: center;
+  background-color: #e3f2fd; /* Azul claro */
+  color: #333;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Conteúdo do modal */
+.modal-card-content p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Ações do modal */
+.modal-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}

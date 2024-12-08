@@ -1,0 +1,16 @@
+<mat-card class="modal-card">
+    <mat-card-header class="modal-card-header">
+      Detalhes da Transação
+    </mat-card-header>
+    <mat-card-content class="modal-card-content">
+      <p><strong>ID:</strong> {{ data.id }}</p>
+      <p><strong>Moeda Origem:</strong> {{ data.origem }}</p>
+      <p><strong>Moeda Destino:</strong> {{ data.destino }}</p>
+      <p><strong>Valor:</strong> {{ data.valor | number: '1.2-2' }}</p>
+      <p><strong>Data:</strong> {{ data.data | date: 'short' }}</p>
+    </mat-card-content>
+    <mat-card-actions class="modal-card-actions">
+      <button mat-button (click)="fechar()">Fechar</button>
+    </mat-card-actions>
+  </mat-card>
+  
