@@ -1,12 +1,44 @@
-.taxa-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+/* Contêiner do modal */
+.modal-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Título do modal */
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #3f51b5; /* Azul Material Design */
+  margin-bottom: 16px;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: #555;
   text-align: center;
 }
 
-.taxa-atual {
-  font-size: 1.25rem;
-  color: #333;
+/* Campo de formulário */
+.form-field {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Ações do modal */
+.modal-actions {
+  display: flex;
+  justify-content: space-between; /* Botões separados */
+  margin-top: 16px;
+}
+
+.modal-actions button {
+  font-weight: bold;
+  padding: 8px 16px;
 }
