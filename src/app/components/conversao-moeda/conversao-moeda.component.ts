@@ -27,57 +27,50 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./conversao-moeda.component.css'],
 })
 export class ConversaoMoedaComponent {
-  valor: number | null = null; // Valor inserido pelo usuário
-  moedaOrigem: string | null = null; // Moeda de origem
-  moedaDestino: string | null = null; // Moeda de destino
-  taxaAtual = 2.5; // Taxa de conversão atual
-  resultado: number | null = null; // Resultado da conversão
-  conversoes: Array<{
-    id: number;
-    moedaOrigem: string;
-    moedaDestino: string;
-    valor: number;
-    taxa: number;
-    dataHora: Date;
-  }> = []; // Array para armazenar conversões
-  displayedColumns: string[] = ['id', 'moedaOrigem', 'moedaDestino', 'valor', 'taxa', 'dataHora'];
-  dataSource = new MatTableDataSource<any>([]); // Inicialização da propriedade dataSource
+  moedaOrigem: string = 'Ouro Real';
+  moedaDestino: string = 'Tibar';
+  valorOrigem: number | null = null;
+  taxaAtual: number = 2.5; // Taxa inicial
+  resultadoConversao: string | null = null; // Resultado da conversão
+  conversoes: any[] = []; // Lista de conversões
+  dataSource = new MatTableDataSource<any>(this.conversoes);
 
+  displayedColumns: string[] = ['id', 'moedaOrigem', 'moedaDestino', 'valor', 'taxa', 'dataHora'];
 
   realizarConversao(): void {
-    // Validação para moedas iguais
+    const valor = Number(this.valorOrigem);
+
+    if (isNaN(valor) || valor <= 0) {
+      alert('Por favor, insira um valor válido maior que zero.');
+      return;
+    }
+
     if (this.moedaOrigem === this.moedaDestino) {
-      alert('As moedas de origem e destino devem ser diferentes.');
+      alert('Por favor, selecione moedas diferentes.');
       return;
     }
-  
-    // Validação para valor inválido
-    if (this.valor === null || this.valor <= 0) {
-      alert('Por favor, insira um valor válido para conversão.');
-      return;
-    }
-  
-    // Garante que moedaOrigem e moedaDestino sejam strings
-    const moedaOrigem = this.moedaOrigem || '';
-    const moedaDestino = this.moedaDestino || '';
-  
-    // Cálculo do resultado
-    this.resultado =
-      moedaOrigem === 'Ouro Real' ? this.valor * this.taxaAtual : this.valor / this.taxaAtual;
-  
-    // Registro da conversão na memória
-    const id = this.conversoes.length + 1; // Gera um ID sequencial
-    const dataHora = new Date(); // Captura a data e hora atuais
-    const conversao = {
-      id,
-      moedaOrigem, // Garantido como string
-      moedaDestino, // Garantido como string
-      valor: this.valor,
+
+    const valorConvertido =
+      this.moedaOrigem === 'Ouro Real'
+        ? valor * this.taxaAtual
+        : valor / this.taxaAtual;
+
+    // Atualiza o resultado da conversão
+    this.resultadoConversao = valorConvertido.toFixed(2);
+
+    // Adiciona a conversão à lista
+    const novaConversao = {
+      id: this.conversoes.length + 1,
+      moedaOrigem: this.moedaOrigem,
+      moedaDestino: this.moedaDestino,
+      valor: this.resultadoConversao,
       taxa: this.taxaAtual,
-      dataHora,
+      dataHora: new Date(),
     };
-  
-    this.conversoes.push(conversao); // Adiciona à memória
-    alert('Conversão realizada com sucesso!');
-  }  
+
+    this.conversoes.push(novaConversao);
+    this.dataSource.data = this.conversoes;
+
+    this.valorOrigem = null; // Limpa o campo de entrada
+  }
 }
