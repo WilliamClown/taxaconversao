@@ -4,11 +4,11 @@
 
 Este projeto é um sistema de conversão de moedas desenvolvido em Angular. Ele permite:
 
-- Visualizar a cotação do dia.
+- Visualizar a cotação do dia. (dados mockados)
+- Atualizar a taxa de conversão entre as moedas.
 - Usar uma calculadora para conversão de moedas.
 - Selecionar moedas de origem e destino para realizar a conversão.
-- Registrar e visualizar o histórico de transações realizadas.
-- Atualizar a taxa de conversão entre as moedas.
+- Registrar e visualizar o histórico de transações realizadas. (alem de exibir dados mockados, exibe os que forem adicionados)
 
 **Funcionalidades implementadas:**
 - Criar o projeto ✔️
