@@ -25,9 +25,9 @@ Atualizar a taxa de conversão entre as moedas.
 
 Para rodar esta aplicação, você precisará dos seguintes requisitos:
 
-Angular CLI: versão 19.0.3
-Node.js: versão 22.12.0
-Package Manager: npm 10.9.0
+Angular CLI: versão 19.0.3 
+Node.js: versão 22.12.0 
+Package Manager: npm 10.9.0 
 
 --------------------------------------
 **Package**                   **Version**
