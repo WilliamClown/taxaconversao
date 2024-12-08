@@ -131,3 +131,19 @@ mat-list-item.active {
   justify-content: flex-end;
   padding: 8px;
 }
+
+/* Remover borda arredondada do menu lateral */
+.sidenav {
+  border-radius: 0; /* Remove bordas arredondadas */
+  box-shadow: none; /* Remove sombra, se houver */
+}
+
+/* Garantir que o mat-sidenav não tenha bordas arredondadas */
+mat-sidenav {
+  border-radius: 0 !important; /* Remove qualquer borda arredondada */
+}
+
+/* Links do menu lateral */
+mat-list-item {
+  border-radius: 0; /* Links sem bordas arredondadas */
+}

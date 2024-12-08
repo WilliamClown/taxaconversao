@@ -10,8 +10,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None, // Permite aplicar estilos globais
   imports: [
     CommonModule,
-    MatCardModule, // Importando MatCardModule
-    MatButtonModule, // Importando MatButtonModule
+    MatCardModule, 
+    MatButtonModule, 
   ],
 })
 export class HistoricoDetalhesModalComponent {

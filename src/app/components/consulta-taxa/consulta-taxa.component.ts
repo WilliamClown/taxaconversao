@@ -23,17 +23,15 @@ export class ConsultaTaxaComponent {
 
   abrirModalAtualizarTaxa(): void {
     const dialogRef = this.dialog.open(AtualizarTaxaModalComponent, {
-      width: '533px',
-      disableClose: true,
+      width: '400px',
+      height: 'auto',
     });
-  
-    // Capture o valor retornado ao fechar o modal
-    dialogRef.afterClosed().subscribe((novaTaxa) => {
-      if (novaTaxa !== null && novaTaxa > 0) {
-        this.taxaAtual = novaTaxa; // Atualiza a taxa no componente pai
-        alert('Taxa atualizada com sucesso!');
+
+    dialogRef.afterClosed().subscribe((novaTaxa: number) => {
+      if (novaTaxa !== undefined) {
+        this.taxaAtual = novaTaxa; // Atualiza a taxa atual
+        console.log('Taxa atualizada para:', this.taxaAtual);
       }
     });
   }
-  
 }

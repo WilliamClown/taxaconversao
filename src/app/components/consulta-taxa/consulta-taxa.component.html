@@ -8,17 +8,14 @@
             <span>1 Ouro Real = {{ taxaAtual }} Tibares</span>
           </p>
         </div>
-        <div class="button-container">
-          <button
-            mat-raised-button
-            color="primary"
-            class="action-button"
-            (click)="abrirModalAtualizarTaxa()"
-          >
-            <mat-icon aria-hidden="true">edit</mat-icon>
-            Atualizar Taxa
-          </button>
-        </div>
+        <div class="page-container">
+            <h1>Consulta de Taxa</h1>
+            <p>Taxa atual de conversão: {{ taxaAtual }}</p>
+            <button mat-raised-button color="primary" (click)="abrirModalAtualizarTaxa()">
+              Atualizar Taxa
+            </button>
+          </div>
+          
       </mat-card-content>
     </mat-card>
   </div>

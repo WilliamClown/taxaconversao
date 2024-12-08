@@ -1,48 +1,40 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-atualizar-taxa-modal',
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule, // Inclua MatCardModule
-    MatButtonModule, // Inclua MatButtonModule
-    MatFormFieldModule, // Inclua MatFormFieldModule
-    MatInputModule, // Inclua MatInputModule
-    FormsModule, // Para usar [(ngModel)]
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  template: `
-    <mat-card class="modal-card">
-      <mat-card-header class="modal-card-header">
-        Atualizar Taxa
-      </mat-card-header>
-      <mat-card-content class="modal-card-content">
-        <mat-form-field appearance="fill" class="form-field">
-          <mat-label>Nova Taxa</mat-label>
-          <input matInput type="number" [(ngModel)]="novaTaxa" />
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions class="modal-card-actions">
-        <button mat-button (click)="fechar()">Cancelar</button>
-        <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
-      </mat-card-actions>
-    </mat-card>
-  `,
+  templateUrl: './atualizar-taxa-modal.component.html',
+  styleUrls: ['./atualizar-taxa-modal.component.css'],
 })
 export class AtualizarTaxaModalComponent {
   novaTaxa: number = 0;
 
+  constructor(private dialogRef: MatDialogRef<AtualizarTaxaModalComponent>) {}
+
   fechar(): void {
-    console.log('Fechando o modal');
+    this.dialogRef.close(); // Fecha o modal sem enviar dados
   }
 
   salvar(): void {
-    console.log('Salvando nova taxa:', this.novaTaxa);
+    if (this.novaTaxa > 0) {
+      this.dialogRef.close(this.novaTaxa); // Envia a nova taxa e fecha o modal
+    } else {
+      alert('Por favor, insira uma taxa válida.');
+    }
   }
 }
