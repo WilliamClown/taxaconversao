@@ -1,59 +1,105 @@
-# GoldConversion
+Conversor de Moedas
+Descrição
+Este projeto é um sistema de conversão de moedas desenvolvido em Angular. Ele permite:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.3.
+Visualizar a cotação do dia.
+Usar uma calculadora para conversão de moedas.
+Selecionar moedas de origem e destino para realizar a conversão.
+Registrar e visualizar o histórico de transações realizadas.
+Atualizar a taxa de conversão entre as moedas.
+Funcionalidades implementadas:
+Criar o projeto ✔️
+Criar o componente de conversão ✔️
+Criar o componente de navegação e menu lateral ✔️
+Alterar o conteúdo com base na navegação ✔️
+Exibir dados mockados da cotação no componente de consulta de taxa ✔️
+Registrar transações e exibi-las no histórico ✔️
+Criar filtros avançados no histórico ✔️
+Exportar dados do histórico para CSV ✔️
+Adicionar casos de testes unitários para os componentes principais ✔️
+Requisitos
+Para rodar esta aplicação, você precisará dos seguintes requisitos:
 
-## Development server
+Angular CLI: versão 16.2.0
+Node.js: versão 18.10.0
+⚠️ Verifique a compatibilidade do Angular com sua versão do Node.js no site oficial: Angular Versions.
 
-To start a local development server, run:
+Clonando o Projeto
+Para obter uma cópia local do projeto, siga os passos abaixo:
 
-```bash
-ng serve
-```
+Clone o repositório:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+bash
+Copiar código
+git clone https://github.com/seuusuario/conversor-moedas-angular.git
+Acesse o diretório do projeto:
 
-## Code scaffolding
+bash
+Copiar código
+cd conversor-moedas-angular
+Instale as dependências:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+bash
+Copiar código
+npm install
+Inicie o servidor de desenvolvimento:
 
-```bash
-ng generate component component-name
-```
+bash
+Copiar código
+npm start
+Navegando pelo Projeto
+Após executar o comando npm start, a aplicação estará disponível no navegador em:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+URL Local: http://localhost:4200
+Você poderá navegar pelas seguintes telas:
 
-```bash
-ng generate --help
-```
+Consulta de Taxa: Veja a cotação atual e atualize-a.
+Conversão de Moeda: Realize a conversão entre as moedas disponíveis.
+Registro de Transação: Registre uma nova transação de conversão.
+Histórico de Transações: Filtre e visualize o histórico de transações realizadas.
+Testes Unitários
+Para executar os testes unitários do projeto, utilize o comando:
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
+bash
+Copiar código
 ng test
-```
+Os testes são executados utilizando o Karma, o ambiente padrão de testes para Angular.
 
-## Running end-to-end tests
+Subindo o Projeto para o GitHub
+Caso deseje fazer o primeiro commit no GitHub, siga os comandos abaixo:
 
-For end-to-end (e2e) testing, run:
+Inicialize o repositório:
 
-```bash
-ng e2e
-```
+bash
+Copiar código
+git init
+Adicione o arquivo README.md:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+bash
+Copiar código
+echo "# conversor-moedas-angular" >> README.md
+Adicione os arquivos ao repositório:
 
-## Additional Resources
+bash
+Copiar código
+git add .
+Faça o primeiro commit:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+bash
+Copiar código
+git commit -m "Primeiro commit"
+Configure a branch principal:
+
+bash
+Copiar código
+git branch -M main
+Adicione o repositório remoto:
+
+bash
+Copiar código
+git remote add origin https://github.com/seuusuario/conversor-moedas-angular.git
+Envie o projeto para o GitHub:
+
+bash
+Copiar código
+git push -u origin main

@@ -1,33 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ConsultaTaxaComponent } from './consulta-taxa.component';
 import { MatDialog } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 describe('ConsultaTaxaComponent', () => {
   let component: ConsultaTaxaComponent;
   let fixture: ComponentFixture<ConsultaTaxaComponent>;
-  let dialogSpy: jasmine.SpyObj<MatDialog>;
 
   beforeEach(async () => {
-    const matDialogMock = jasmine.createSpyObj('MatDialog', ['open']);
-
     await TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, ConsultaTaxaComponent],
-      providers: [{ provide: MatDialog, useValue: matDialogMock }],
+      imports: [MatCardModule],
+      declarations: [ConsultaTaxaComponent],
+      providers: [
+        { provide: MatDialog, useValue: {} },
+      ],
     }).compileComponents();
+  });
 
-    dialogSpy = TestBed.inject(MatDialog) as jasmine.SpyObj<MatDialog>;
+  beforeEach(() => {
     fixture = TestBed.createComponent(ConsultaTaxaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('deve criar o componente', () => {
+  it('deve ser criado', () => {
     expect(component).toBeTruthy();
   });
 
-  it('deve abrir o modal ao clicar no botão', () => {
+  it('deve abrir o modal de atualização de taxa', () => {
+    spyOn(component, 'abrirModalAtualizarTaxa');
     component.abrirModalAtualizarTaxa();
-    expect(dialogSpy.open).toHaveBeenCalled();
+    expect(component.abrirModalAtualizarTaxa).toHaveBeenCalled();
   });
 });
