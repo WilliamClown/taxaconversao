@@ -166,6 +166,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
+/* Alinhamento das ações no cartão */
+.transaction-card-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    padding: 16px;
+  }
+
   /* Botão moderno */
 .modern-button {
     background-color: #3f51b5; /* Azul Material Design */
@@ -192,12 +199,5 @@
     background-color: #1a237e; /* Azul profundo */
     transform: translateY(1px); /* Reduz a elevação */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor */
-  }
-  
-  /* Alinhamento das ações no cartão */
-  .conversion-card-actions {
-    display: flex;
-    justify-content: flex-end; /* Alinha o botão à direita */
-    padding: 16px;
   }
   

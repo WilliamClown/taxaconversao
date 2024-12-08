@@ -13,49 +13,48 @@
     </mat-card-header>
     <mat-card-content>
       <form>
-        <!-- Moeda de Origem -->
-        <mat-form-field appearance="fill" class="form-field">
-          <mat-label>Moeda de Origem</mat-label>
-          <mat-select [(ngModel)]="moedaOrigem" name="moedaOrigem" required>
-            <mat-option value="Ouro Real">Ouro Real</mat-option>
-            <mat-option value="Tibar">Tibar</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Origem:</strong>
+            <select [(ngModel)]="moedaOrigem" name="moedaOrigem">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
 
-        <!-- Valor -->
-        <mat-form-field appearance="fill" class="form-field">
-          <mat-label>Valor</mat-label>
-          <input
-            matInput
-            type="number"
-            [(ngModel)]="valorOrigem"
-            name="valorOrigem"
-            placeholder="Digite o valor"
-            required
-          />
-        </mat-form-field>
+        <div class="form-group">
+          <label>
+            <strong>Valor:</strong>
+            <input
+              type="number"
+              [(ngModel)]="valorOrigem"
+              name="valorOrigem"
+              placeholder="Digite o valor"
+            />
+          </label>
+        </div>
 
-        <!-- Moeda de Destino -->
-        <mat-form-field appearance="fill" class="form-field">
-          <mat-label>Moeda de Destino</mat-label>
-          <mat-select [(ngModel)]="moedaDestino" name="moedaDestino" required>
-            <mat-option value="Ouro Real">Ouro Real</mat-option>
-            <mat-option value="Tibar">Tibar</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="form-group">
+          <label>
+            <strong>Moeda de Destino:</strong>
+            <select [(ngModel)]="moedaDestino" name="moedaDestino">
+              <option>Ouro Real</option>
+              <option>Tibar</option>
+            </select>
+          </label>
+        </div>
       </form>
     </mat-card-content>
-
-    <!-- Botão de Registro -->
-    <mat-card-actions>
+    <mat-card-actions class="transaction-card-actions">
       <button
         mat-raised-button
         color="primary"
+        class="modern-button"
         (click)="registrarTransacao()"
-        class="action-button"
       >
         Registrar Transação
       </button>
-    </mat-card-actions>
+    </mat-card-actions>    
   </mat-card>
 </div>

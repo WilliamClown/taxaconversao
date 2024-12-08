@@ -1,26 +1,95 @@
+/* Container Principal */
 .page-container {
+    padding: 20px;
+    background-color: #f4f5f7;
+    min-height: 100vh;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    color: #3f51b5;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Formulário */
+  mat-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  mat-card-header {
+    background-color: #e3f2fd;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    color: #3f51b5;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+  
+
+/* Alinhamento das ações no cartão */
+.transaction-card-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-end; /* Alinha o botão à direita */
   padding: 16px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 16px;
+/* Botão moderno */
+.modern-button {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
+  transition: all 0.3s ease; /* Transição suave */
+  cursor: pointer;
 }
 
-.mat-card {
-  width: 100%;
-  max-width: 600px;
+.modern-button:hover {
+  background-color: #283593; /* Azul mais escuro */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra maior */
+  transform: translateY(-2px); /* Eleva o botão */
 }
 
-.form-field {
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-.action-button {
-  display: block;
-  margin-left: auto; /* Alinha o botão à direita */
+.modern-button:active {
+  background-color: #1a237e; /* Azul profundo */
+  transform: translateY(1px); /* Reduz a elevação */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor */
 }

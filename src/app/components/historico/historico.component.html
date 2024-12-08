@@ -49,8 +49,14 @@
       </mat-table>
     </mat-card-content>
 
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="exportarCSV()">Exportar CSV</button>
+    <mat-card-actions class="transaction-card-actions">
+      <button
+        mat-raised-button
+        color="primary"
+        class="modern-button" 
+        (click)="exportarCSV()">
+        Exportar CSV
+      </button>
     </mat-card-actions>    
 
     <mat-card-actions>
