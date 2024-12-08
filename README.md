@@ -52,12 +52,12 @@ Para obter uma cópia local do projeto, siga os passos abaixo:
 
 **Clone o repositório:**
 ```
-git clone https://github.com/seuusuario/conversor-moedas-angular.git
+git clone https://github.com/WilliamClown/taxaconversao.git
 ```
 
 **Acesse o diretório do projeto:**
 ```
-cd conversor-moedas-angular
+cd taxaconversao
 ```
 
 **Instale as dependências:**
@@ -109,7 +109,7 @@ git init
 
 **Adicione o arquivo README.md:**
 ```
-echo "# conversor-moedas-angular" >> README.md
+echo "# taxaconversao" >> README.md
 ```
 
 **Adicione os arquivos ao repositório:**
@@ -129,7 +129,7 @@ git branch -M main
 
 **Adicione o repositório remoto:**
 ```
-git remote add origin https://github.com/seuusuario/conversor-moedas-angular.git
+git remote add origin https://github.com/WilliamClown/taxaconversao.git
 ```
 
 **Envie o projeto para o GitHub:**
