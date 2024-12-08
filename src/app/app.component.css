@@ -147,3 +147,29 @@ mat-sidenav {
 mat-list-item {
   border-radius: 0; /* Links sem bordas arredondadas */
 }
+
+/* Estilo global para botões modernos */
+.modern-button {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.modern-button:hover {
+  background-color: #283593;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.modern-button:active {
+  background-color: #1a237e;
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

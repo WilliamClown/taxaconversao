@@ -43,12 +43,6 @@
     flex: 1;
   }
   
-  /* Botão de Conversão */
-  .convert-button {
-    width: 100%;
-    margin-top: 16px;
-  }
-  
   /* Cartão de Tabela */
   .table-card {
     max-width: 800px;
@@ -97,24 +91,6 @@
     gap: 16px;
     justify-content: space-between;
     align-items: flex-start;
-  }
-  
-  /* Alinhamento do Botão */
-  .button-container {
-    width: 100%; /* Ocupa toda a largura do formulário */
-    display: flex; /* Ativa flexbox */
-    justify-content: center; /* Centraliza o botão */
-    margin-top: 16px;
-  }
-  
-  .button-container.align-right {
-    justify-content: flex-end; /* Alinha o botão à direita */
-  }
-  
-  /* Estilo do Botão */
-  button {
-    padding: 8px 16px;
-    font-size: 1rem;
   }
   
 /* Container da Página */
@@ -189,3 +165,39 @@
     background-color: #e0f7fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  /* Botão moderno */
+.modern-button {
+    background-color: #3f51b5; /* Azul Material Design */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    transition: all 0.3s ease; /* Transição suave */
+    cursor: pointer;
+  }
+  
+  /* Efeito ao passar o mouse */
+  .modern-button:hover {
+    background-color: #283593; /* Azul mais escuro */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra maior */
+    transform: translateY(-2px); /* Eleva o botão */
+  }
+  
+  /* Efeito ao pressionar */
+  .modern-button:active {
+    background-color: #1a237e; /* Azul profundo */
+    transform: translateY(1px); /* Reduz a elevação */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor */
+  }
+  
+  /* Alinhamento das ações no cartão */
+  .conversion-card-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    padding: 16px;
+  }
+  
