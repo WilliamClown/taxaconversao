@@ -32,19 +32,19 @@ Node.js: versão 22.12.0
 Package Manager: npm 10.9.0 
 
 
---------------------------------------
-**Package**                   **Version**
----------------------------------------------------------
-@angular-devkit/architect       0.1900.3
-@angular-devkit/build-angular   19.0.3
-@angular-devkit/core            19.0.3
-@angular-devkit/schematics      19.0.3
-@angular/cdk                    19.0.2
-@angular/material               19.0.2
-@schematics/angular             19.0.3
-rxjs                            7.8.1
-typescript                      5.6.3
-zone.js                         0.15.0
+|------------------------------| -------------|
+|**Package**                   | **Version**  |
+| ---------------------------- | -------------|
+|@angular-devkit/architect     |   0.1900.3   |
+|@angular-devkit/build-angular |  19.0.3      |
+|@angular-devkit/core          |  19.0.3      |
+|@angular-devkit/schematics    |  19.0.3      |
+|@angular/cdk                  |  19.0.2      |
+|@angular/material             |  19.0.2      |
+|@schematics/angular           |  19.0.3      |
+|rxjs                          |  7.8.1       |
+|typescript                    |  5.6.3       |
+|zone.js                       |  0.15.0      |
 
 ⚠️ Verifique a compatibilidade do Angular com sua versão do Node.js no site oficial: Angular Versions.
 
