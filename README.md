@@ -32,7 +32,6 @@ Node.js: versão 22.12.0
 Package Manager: npm 10.9.0 
 
 
-|------------------------------| -------------|
 |**Package**                   | **Version**  |
 | ---------------------------- | -------------|
 |@angular-devkit/architect     |   0.1900.3   |
@@ -86,7 +85,9 @@ Você poderá navegar pelas seguintes telas:
 **4. Histórico de Transações:** Filtre e visualize o histórico de transações realizadas.
 
 
+
 **Testes Unitários**
+
 Para executar os testes unitários do projeto, utilize o comando:
 ```
 ng test
