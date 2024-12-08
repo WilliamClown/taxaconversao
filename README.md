@@ -87,6 +87,7 @@ Você poderá navegar pelas seguintes telas:
 
 
 
+
 **Testes Unitários**
 
 Para executar os testes unitários do projeto, utilize o comando:
@@ -95,7 +96,10 @@ ng test
 ```
 Os testes são executados utilizando o Karma, o ambiente padrão de testes para Angular.
 
+
+
 **Subindo o Projeto para o GitHub**
+
 Caso deseje fazer o primeiro commit no GitHub, siga os comandos abaixo:
 
 **Inicialize o repositório:**
