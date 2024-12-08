@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { AtualizarTaxaModalComponent } from './atualizar-taxa-modal.component';
+import { EstadoService } from '../../services/estado.service';
 
 @Component({
   selector: 'app-consulta-taxa',
@@ -13,9 +14,11 @@ import { AtualizarTaxaModalComponent } from './atualizar-taxa-modal.component';
   styleUrls: ['./consulta-taxa.component.css'],
 })
 export class ConsultaTaxaComponent {
-  taxaAtual: number = 2.5; // Taxa inicial
+  taxaAtual: number;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private estadoService: EstadoService) {
+    this.taxaAtual = this.estadoService.obterTaxaAtual();
+  }
 
   abrirModalAtualizarTaxa(): void {
     const dialogRef = this.dialog.open(AtualizarTaxaModalComponent, {
@@ -25,7 +28,8 @@ export class ConsultaTaxaComponent {
 
     dialogRef.afterClosed().subscribe((novaTaxa: number) => {
       if (novaTaxa !== undefined) {
-        this.taxaAtual = novaTaxa; // Atualiza a taxa atual
+        this.estadoService.atualizarTaxa(novaTaxa); // Atualiza no serviço
+        this.taxaAtual = this.estadoService.obterTaxaAtual(); // Atualiza no componente
       }
     });
   }

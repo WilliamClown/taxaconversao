@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { EstadoService } from '../../services/estado.service';
 
 @Component({
   selector: 'app-conversao-moeda',
@@ -30,12 +31,19 @@ export class ConversaoMoedaComponent {
   moedaOrigem: string = 'Ouro Real';
   moedaDestino: string = 'Tibar';
   valorOrigem: number | null = null;
-  taxaAtual: number = 2.5; // Taxa inicial
-  resultadoConversao: string | null = null; // Resultado da conversão
-  conversoes: any[] = []; // Lista de conversões
-  dataSource = new MatTableDataSource<any>(this.conversoes);
+  taxaAtual: number;
+  resultadoConversao: string | null = null;
+  conversoes: any[];
+  dataSource: MatTableDataSource<any>;
 
+  // Adicione esta propriedade com os nomes das colunas
   displayedColumns: string[] = ['id', 'moedaOrigem', 'moedaDestino', 'valor', 'taxa', 'dataHora'];
+
+  constructor(private estadoService: EstadoService) {
+    this.taxaAtual = this.estadoService.obterTaxaAtual();
+    this.conversoes = this.estadoService.obterConversoes();
+    this.dataSource = new MatTableDataSource(this.conversoes);
+  }
 
   realizarConversao(): void {
     const valor = Number(this.valorOrigem);
@@ -55,22 +63,19 @@ export class ConversaoMoedaComponent {
         ? valor * this.taxaAtual
         : valor / this.taxaAtual;
 
-    // Atualiza o resultado da conversão
-    this.resultadoConversao = valorConvertido.toFixed(2);
+    this.resultadoConversao = `${valor.toFixed(2)} ${this.moedaOrigem} = ${valorConvertido.toFixed(2)} ${this.moedaDestino} (Taxa: ${this.taxaAtual})`;
 
-    // Adiciona a conversão à lista
     const novaConversao = {
       id: this.conversoes.length + 1,
       moedaOrigem: this.moedaOrigem,
       moedaDestino: this.moedaDestino,
-      valor: this.resultadoConversao,
+      valor: valorConvertido.toFixed(2),
       taxa: this.taxaAtual,
       dataHora: new Date(),
     };
 
-    this.conversoes.push(novaConversao);
-    this.dataSource.data = this.conversoes;
-
-    this.valorOrigem = null; // Limpa o campo de entrada
+    this.estadoService.adicionarConversao(novaConversao);
+    this.dataSource.data = this.estadoService.obterConversoes();
+    this.valorOrigem = null;
   }
 }
