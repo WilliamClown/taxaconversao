@@ -1,10 +1,13 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card'; // Importa MatCardModule
-import { MatIconModule } from '@angular/material/icon'; // Importa o módulo de ícones
+import { MatCardModule } from '@angular/material/card'; 
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { TransacaoService } from '../../services/transacao.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.component';
+
 
 @Component({
   selector: 'app-historico',
@@ -13,8 +16,8 @@ import { TransacaoService } from '../../services/transacao.service';
     CommonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule, // Inclua MatCardModule
-    MatIconModule, // Inclua MatIconModule
+    MatCardModule, 
+    MatIconModule, 
   ],
   templateUrl: './historico.component.html',
   styleUrls: ['./historico.component.css'],
@@ -25,7 +28,7 @@ export class HistoricoComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private transacaoService: TransacaoService) {}
+  constructor(private transacaoService: TransacaoService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     const transacoes = this.transacaoService.obterTransacoes();
@@ -37,12 +40,10 @@ export class HistoricoComponent implements OnInit, AfterViewInit {
   }
 
   abrirDetalhes(transacao: any): void {
-    alert(`Detalhes da Transação:
-    ID: ${transacao.id}
-    Origem: ${transacao.origem}
-    Destino: ${transacao.destino}
-    Valor: ${transacao.valor}
-    Data: ${transacao.data}`);
+    this.dialog.open(HistoricoDetalhesModalComponent, {
+      width: '400px',
+      data: transacao,
+    });
   }
 
   exportarCSV(): void {

@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { TransacoesComponent } from './components/transacoes/transacoes.component';
 import { HistoricoComponent } from './components/historico/historico.component';
-import { PainelConversaoComponent } from './components/painel-conversao/painel-conversao.component';
+import { ConsultaTaxaComponent } from './components/consulta-taxa/consulta-taxa.component';
+import { ConversaoMoedaComponent } from './components/conversao-moeda/conversao-moeda.component';
 
 export const routes: Routes = [
-  { path: '', component: PainelConversaoComponent }, // Rota principal
-  { path: 'painel-conversao', component: PainelConversaoComponent }, // Rota adicional para o painel, se necessário
+  { path: '', component: ConsultaTaxaComponent }, // Rota principal
+  { path: 'consulta-taxa', component: ConsultaTaxaComponent },
+  { path: 'conversao-moeda', component: ConversaoMoedaComponent },
   { path: 'transacoes', component: TransacoesComponent },
   { path: 'historico', component: HistoricoComponent },
-  { path: '', redirectTo: '/painel-conversao', pathMatch: 'full' },
+  { path: '', redirectTo: '/consulta-taxa', pathMatch: 'full' },
 ];

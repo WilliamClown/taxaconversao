@@ -1,0 +1,25 @@
+<div class="page-container">
+    <h1 class="page-title">Consulta de Taxa</h1>
+    <mat-card class="mat-elevation-z4 consulta-taxa-card">
+      <mat-card-content>
+        <div class="taxa-info">
+          <p class="taxa-atual">
+            <strong>Taxa Atual:</strong>
+            <span>1 Ouro Real = {{ taxaAtual }} Tibares</span>
+          </p>
+        </div>
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            class="action-button"
+            (click)="abrirModalAtualizarTaxa()"
+          >
+            <mat-icon aria-hidden="true">edit</mat-icon>
+            Atualizar Taxa
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

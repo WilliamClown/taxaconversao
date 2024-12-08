@@ -1,0 +1,119 @@
+/* Container da Página */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    background-color: #f4f5f7;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  /* Título da Página */
+  .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3f51b5;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  /* Cartão de Conversão */
+  .conversao-card {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  /* Formulário de Conversão */
+  .conversion-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .form-field {
+    flex: 1;
+  }
+  
+  /* Botão de Conversão */
+  .convert-button {
+    width: 100%;
+    margin-top: 16px;
+  }
+  
+  /* Cartão de Tabela */
+  .table-card {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+ /* Título da Tabela */
+.table-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3f51b5; 
+    background-color: #e3f2fd; /* Fundo azul padrão */
+    padding: 8px 16px; /* Espaçamento interno */
+    border-radius: 4px 4px 0 0; /* Bordas arredondadas no topo */
+    text-align: center;
+    margin-bottom: 0; /* Remove margem inferior para alinhar com a tabela */
+  }
+  
+  /* Tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Cabeçalhos das Colunas */
+  th {
+    background-color: #3f51b5; /* Fundo azul padrão */
+    color: white; /* Texto branco */
+    padding: 8px;
+    text-align: left; /* Alinhamento do texto */
+    font-weight: bold;
+  }
+  
+  /* Células de Dados */
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Linha divisória */
+  }
+  
+  
+  /* Contêiner do Formulário */
+.conversion-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  /* Alinhamento do Botão */
+  .button-container {
+    width: 100%; /* Ocupa toda a largura do formulário */
+    display: flex; /* Ativa flexbox */
+    justify-content: center; /* Centraliza o botão */
+    margin-top: 16px;
+  }
+  
+  .button-container.align-right {
+    justify-content: flex-end; /* Alinha o botão à direita */
+  }
+  
+  /* Estilo do Botão */
+  button {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+  

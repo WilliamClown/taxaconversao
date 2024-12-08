@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PainelConversaoComponent } from './painel-conversao.component';
+import { ConversaoMoedaComponent } from './conversao-moeda.component';
 
-describe('PainelConversaoComponent', () => {
-  let component: PainelConversaoComponent;
-  let fixture: ComponentFixture<PainelConversaoComponent>;
+describe('ConversaoMoedaComponent', () => {
+  let component: ConversaoMoedaComponent;
+  let fixture: ComponentFixture<ConversaoMoedaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PainelConversaoComponent]
+      imports: [ConversaoMoedaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PainelConversaoComponent);
+    fixture = TestBed.createComponent(ConversaoMoedaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

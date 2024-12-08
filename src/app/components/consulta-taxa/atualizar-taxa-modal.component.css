@@ -1,0 +1,12 @@
+.taxa-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.taxa-atual {
+  font-size: 1.25rem;
+  color: #333;
+}

@@ -3,10 +3,14 @@
   <mat-sidenav #sidenav mode="side" [mode]="isSmallScreen ? 'over' : 'side'" [opened]="!isSmallScreen" class="sidenav">
     <mat-nav-list>
       <h3 class="menu-category">Operações</h3>
-      <a mat-list-item routerLink="/painel-conversao" routerLinkActive="active">
-        <mat-icon>swap_horiz</mat-icon>
-        Painel de Conversão
-      </a>
+      <a mat-list-item routerLink="/consulta-taxa" routerLinkActive="active">
+      <mat-icon>insights</mat-icon>
+      Consulta de Taxa
+    </a>
+    <a mat-list-item routerLink="/conversao-moeda" routerLinkActive="active">
+      <mat-icon>swap_horiz</mat-icon>
+      Conversão de Moeda
+    </a>
       <a mat-list-item routerLink="/transacoes" routerLinkActive="active">
         <mat-icon>add_circle</mat-icon>
         Registrar Transação

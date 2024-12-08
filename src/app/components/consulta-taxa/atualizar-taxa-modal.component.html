@@ -1,0 +1,14 @@
+<div class="modal-container">
+  <h1 class="modal-title">Atualizar Taxa</h1>
+  <div class="modal-content">
+    <p>Informe a nova taxa de conversão:</p>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nova Taxa</mat-label>
+      <input matInput type="number" [(ngModel)]="novaTaxa" />
+    </mat-form-field>
+  </div>
+  <div class="modal-actions">
+    <button mat-button (click)="cancelar()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="confirmar()">Atualizar</button>
+  </div>
+</div>

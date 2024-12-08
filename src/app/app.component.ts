@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,13 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,      // Barra de ferramentas
     MatIconModule,         // Ícones
     MatListModule,         // Lista no menu
+    MatDialogModule,       // Modal
   ],
   templateUrl: './app.component.html', // Template principal da aplicação
   styleUrls: ['./app.component.css'],  // Estilos globais
 })
 export class AppComponent {
+  title = 'Gestão de taxas';
   isSmallScreen: boolean = false;
   isMenuOpen = false;
 
@@ -37,7 +40,7 @@ export class AppComponent {
       this.isSmallScreen = window.innerWidth <= 768;
     }
   }
-  
+
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
