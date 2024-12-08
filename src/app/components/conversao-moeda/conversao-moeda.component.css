@@ -147,12 +147,14 @@
     margin: 0 auto;
     max-width: 1200px;
     background: #ffffff;
+    margin-bottom: 24px; /* Espaçamento entre os cartões */
   }
   
   mat-card-header {
     background-color: #e3f2fd;
     padding: 15px;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 16px; /* Espaçamento entre o título e os campos */
   }
   
   mat-card-title {
@@ -187,4 +189,3 @@
     background-color: #e0f7fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
