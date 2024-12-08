@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -10,6 +11,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.component'; // Importa o modal
+
+
 
 @Component({
   selector: 'app-historico',
@@ -17,6 +23,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    MatDialogModule, // Inclua MatDialogModule corretamente
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -25,7 +32,7 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatTableModule,
+    MatTableModule, // Inclua MatTableModule
   ],
   templateUrl: './historico.component.html',
   styleUrls: ['./historico.component.css'],
@@ -41,6 +48,8 @@ export class HistoricoComponent {
   filtroValorMaximo: number | null = null;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private dialog: MatDialog) {} 
 
   ngOnInit(): void {
     // Dados mockados
@@ -89,7 +98,36 @@ export class HistoricoComponent {
     }
   }
 
-  abrirDetalhes(row: any): void {
-    alert(`Detalhes da Transação:\n${JSON.stringify(row, null, 2)}`);
+  abrirDetalhes(transacao: any): void {
+    this.dialog.open(HistoricoDetalhesModalComponent, {
+      width: '400px',
+      data: transacao, // Passa os dados da transação para o modal
+    });
+  }
+
+  exportarCSV(): void {
+    const colunas = ['ID', 'Moeda Origem', 'Moeda Destino', 'Valor', 'Data e Hora'];
+  
+    // Converte os dados para formato CSV
+    const linhas = this.dataSource.data.map((transacao: any) => [
+      transacao.id,
+      transacao.origem,
+      transacao.destino,
+      transacao.valor,
+      new Date(transacao.dataHora).toLocaleString(), // Formata a data
+    ]);
+  
+    // Adiciona o cabeçalho das colunas
+    const dadosCSV = [colunas, ...linhas]
+      .map((linha) => linha.join(',')) // Junta os valores com vírgulas
+      .join('\n'); // Junta as linhas com quebras de linha
+  
+    // Cria um blob para o CSV e faz o download
+    const blob = new Blob([dadosCSV], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', 'historico-transacoes.csv');
+    link.click();
   }
 }

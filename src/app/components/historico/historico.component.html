@@ -93,7 +93,10 @@
       </mat-table>
     </mat-card-content>
     <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="exportarCSV()">
+        Exportar CSV
+      </button>
       <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
-    </mat-card-actions>
+    </mat-card-actions>    
   </mat-card>
 </div>
