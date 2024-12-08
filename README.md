@@ -8,8 +8,7 @@ Este projeto é um sistema de conversão de moedas desenvolvido em Angular. Ele 
 - Usar uma calculadora para conversão de moedas.
 - Selecionar moedas de origem e destino para realizar a conversão.
 - Registrar e visualizar o histórico de transações realizadas.
-
-Atualizar a taxa de conversão entre as moedas.
+- Atualizar a taxa de conversão entre as moedas.
 
 **Funcionalidades implementadas:**
 - Criar o projeto ✔️
@@ -26,11 +25,9 @@ Atualizar a taxa de conversão entre as moedas.
 
 Para rodar esta aplicação, você precisará dos seguintes requisitos:
 
-Angular CLI: versão 19.0.3 
-
-Node.js: versão 22.12.0 
-
-Package Manager: npm 10.9.0 
+- Angular CLI: versão 19.0.3 
+- Node.js: versão 22.12.0 
+- Package Manager: npm 10.9.0 
 
 
 |**Package**                   | **Version**  |
@@ -76,7 +73,7 @@ npm start
 Após executar o comando npm start, a aplicação estará disponível no navegador em:
 
 URL Local: http://localhost:4200
-Você poderá navegar pelas seguintes telas:
+**Você poderá navegar pelas seguintes telas:**
 
 **1. Consulta de Taxa:** Veja a cotação atual e atualize-a.
 
