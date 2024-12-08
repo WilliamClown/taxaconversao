@@ -4,26 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TransacaoService {
-  // Dados mockados iniciais
   private transacoes: any[] = [
-    { id: 1, origem: 'Ouro Real', destino: 'Tibar', valor: 250, data: new Date() },
-    { id: 2, origem: 'Tibar', destino: 'Ouro Real', valor: 100, data: new Date() },
-  ];
+    { id: 1, origem: 'Ouro Real', destino: 'Tibar', valor: 250, dataHora: new Date() },
+    { id: 2, origem: 'Tibar', destino: 'Ouro Real', valor: 100, dataHora: new Date() },
+  ]; // Inicializa com dados mockados
 
-  // Obtém todas as transações
   obterTransacoes(): any[] {
-    return [...this.transacoes]; // Retorna uma cópia dos dados
+    return [...this.transacoes]; // Retorna uma cópia do array para evitar mutações
   }
 
-  // Adiciona uma nova transação
   adicionarTransacao(origem: string, destino: string, valor: number): void {
     const novaTransacao = {
-      id: this.transacoes.length + 1,
+      id: this.transacoes.length + 1, // Gera um ID único
       origem,
       destino,
       valor,
-      data: new Date(),
+      dataHora: new Date(), // Adiciona a data e hora atual
     };
-    this.transacoes.push(novaTransacao);
+    this.transacoes.push(novaTransacao); // Adiciona ao array de transações
+    console.log('Nova transação adicionada:', novaTransacao);
   }
 }

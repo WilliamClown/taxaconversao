@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.component'; // Importa o modal
+import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.component'; 
+import { TransacaoService } from '../../services/transacao.service';
 
 
 
@@ -23,7 +24,7 @@ import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.comp
   imports: [
     CommonModule,
     FormsModule,
-    MatDialogModule, // Inclua MatDialogModule corretamente
+    MatDialogModule, 
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -32,7 +33,7 @@ import { HistoricoDetalhesModalComponent } from './historico-detalhes-modal.comp
     MatDatepickerModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatTableModule, // Inclua MatTableModule
+    MatTableModule, 
   ],
   templateUrl: './historico.component.html',
   styleUrls: ['./historico.component.css'],
@@ -49,20 +50,20 @@ export class HistoricoComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private dialog: MatDialog) {} 
+  constructor(private transacaoService: TransacaoService, private dialog: MatDialog) {}
+
 
   ngOnInit(): void {
-    // Dados mockados
-    this.dadosOriginais = [
-      { id: 1, origem: 'Ouro Real', destino: 'Tibar', valor: 250, dataHora: new Date() },
-      { id: 2, origem: 'Tibar', destino: 'Ouro Real', valor: 100, dataHora: new Date() },
-    ];
-
-    this.dataSource.data = this.dadosOriginais; // Atribui os dados mockados
+    this.atualizarDados();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+  }
+
+  atualizarDados(): void {
+    this.dataSource.data = this.transacaoService.obterTransacoes();
+    console.log('Dados atualizados no histórico:', this.dataSource.data);
   }
 
   aplicarFiltros(): void {

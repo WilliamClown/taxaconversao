@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field'; 
-import { MatSelectModule } from '@angular/material/select'; 
-import { MatInputModule } from '@angular/material/input'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TransacaoService } from '../../services/transacao.service';
@@ -15,10 +14,9 @@ import { TransacaoService } from '../../services/transacao.service';
     CommonModule,
     FormsModule,
     MatCardModule,
-    MatIconModule,
-    MatFormFieldModule, 
-    MatSelectModule, 
-    MatInputModule, 
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   templateUrl: './transacoes.component.html',
   styleUrls: ['./transacoes.component.css'],
@@ -55,6 +53,11 @@ export class TransacoesComponent {
     );
 
     alert('Transação registrada com sucesso!');
+    console.log('Nova transação registrada:', {
+      origem: this.moedaOrigem,
+      destino: this.moedaDestino,
+      valor: valorConvertido,
+    });
     this.valorOrigem = null; // Limpa o campo de entrada
   }
 }
