@@ -71,6 +71,7 @@ npm start
 ```
 
 **Navegando pelo Projeto**
+
 Após executar o comando npm start, a aplicação estará disponível no navegador em:
 
 URL Local: http://localhost:4200
