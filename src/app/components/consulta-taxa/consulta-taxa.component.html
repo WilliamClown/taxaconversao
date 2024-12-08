@@ -1,22 +1,27 @@
 <div class="page-container">
-    <h1 class="page-title">Consulta de Taxa</h1>
-    <mat-card class="mat-elevation-z4 consulta-taxa-card">
+    <!-- Cabeçalho -->
+    <div class="header">
+      <h1>Consulta de Taxa</h1>
+      <p>Visualize a taxa atual de conversão e atualize quando necessário.</p>
+    </div>
+  
+    <!-- Cartão de Taxa -->
+    <mat-card class="tax-card mat-elevation-z4">
+      <mat-card-header class="tax-card-header">
+        <mat-card-title>Taxa Atual</mat-card-title>
+        <mat-card-subtitle>1 Ouro Real = {{ taxaAtual }} Tibares</mat-card-subtitle>
+      </mat-card-header>
       <mat-card-content>
-        <div class="taxa-info">
-          <p class="taxa-atual">
-            <strong>Taxa Atual:</strong>
-            <span>1 Ouro Real = {{ taxaAtual }} Tibares</span>
-          </p>
-        </div>
-        <div class="page-container">
-            <h1>Consulta de Taxa</h1>
-            <p>Taxa atual de conversão: {{ taxaAtual }}</p>
-            <button mat-raised-button color="primary" (click)="abrirModalAtualizarTaxa()">
-              Atualizar Taxa
-            </button>
-          </div>
-          
+        <p>
+          Para manter o sistema atualizado, clique no botão abaixo para definir
+          uma nova taxa de conversão.
+        </p>
       </mat-card-content>
+      <mat-card-actions class="tax-card-actions">
+        <button mat-raised-button color="primary" (click)="abrirModalAtualizarTaxa()">
+          Atualizar Taxa
+        </button>
+      </mat-card-actions>
     </mat-card>
   </div>
   

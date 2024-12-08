@@ -1,57 +1,54 @@
-/* Container da Página */
+/* Estrutura geral da página */
 .page-container {
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo em coluna */
-    align-items: center; /* Centraliza horizontalmente */
-    padding: 16px;
-    background-color: #f4f5f7; /* Fundo claro */
-    min-height: 100vh; /* Garante altura de 100% da janela */
-    box-sizing: border-box;
-  }
-  
-  /* Título da Página */
-  .page-title {
-    font-size: 2rem; /* Tamanho maior */
-    font-weight: bold; /* Negrito */
-    color: #3f51b5; /* Cor primária */
-    margin-bottom: 16px; /* Espaçamento inferior */
-    text-align: center; /* Centraliza o título */
-  }
-  
-  /* Cartão de Consulta de Taxa */
-  .consulta-taxa-card {
-    max-width: 800px; /* Largura máxima do cartão */
-    width: 100%; /* O cartão ocupa toda a largura disponível */
-    padding: 16px; /* Espaçamento interno */
-  }
-  
-  /* Conteúdo do Cartão */
-  .taxa-info {
-    margin-bottom: 16px; /* Espaçamento inferior */
-    text-align: center; /* Centraliza o texto dentro do cartão */
-  }
-  
-  .taxa-atual {
-    font-size: 1.25rem; /* Texto legível */
-    color: #333; /* Cor escura */
-  }
-  
-  /* Botão Centralizado no Cartão */
-  .button-container {
-    display: flex; /* Flexbox para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    margin-top: 16px; /* Espaçamento superior */
-  }
-  
-  /* Botão de Ação */
-  .action-button {
-    display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 8px; /* Espaçamento entre ícone e texto */
-    padding: 8px 16px; /* Espaçamento interno */
-    font-size: 0.875rem; /* Tamanho menor do texto */
-    min-width: 120px; /* Largura mínima */
-    max-width: 200px; /* Largura máxima */
+    padding: 16px;
+    background-color: #f4f5f7;
+    min-height: 100vh;
   }
   
+  /* Cabeçalho */
+  .header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    color: #3f51b5; /* Azul Material Design */
+  }
+  
+  .header p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Cartão de Taxa */
+  .tax-card {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .tax-card-header {
+    background-color: #e3f2fd; /* Azul claro */
+    color: #333;
+    padding: 16px;
+  }
+  
+  .tax-card-content {
+    padding: 16px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .tax-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+  
+  .tax-card {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+

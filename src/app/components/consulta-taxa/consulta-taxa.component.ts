@@ -1,23 +1,19 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card'; 
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 import { AtualizarTaxaModalComponent } from './atualizar-taxa-modal.component';
 
 @Component({
   selector: 'app-consulta-taxa',
   standalone: true,
-  imports: [
-    MatDialogModule, 
-    MatCardModule, 
-    MatButtonModule, 
-    MatIconModule,],
+  imports: [CommonModule, MatDialogModule, MatCardModule, MatIconModule], 
   templateUrl: './consulta-taxa.component.html',
   styleUrls: ['./consulta-taxa.component.css'],
 })
 export class ConsultaTaxaComponent {
-  taxaAtual = 2.5;
+  taxaAtual: number = 2.5; // Taxa inicial
 
   constructor(private dialog: MatDialog) {}
 
@@ -30,7 +26,6 @@ export class ConsultaTaxaComponent {
     dialogRef.afterClosed().subscribe((novaTaxa: number) => {
       if (novaTaxa !== undefined) {
         this.taxaAtual = novaTaxa; // Atualiza a taxa atual
-        console.log('Taxa atualizada para:', this.taxaAtual);
       }
     });
   }
