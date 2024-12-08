@@ -73,6 +73,8 @@ npm start
 Após executar o comando npm start, a aplicação estará disponível no navegador em:
 
 URL Local: http://localhost:4200
+
+
 **Você poderá navegar pelas seguintes telas:**
 
 **1. Consulta de Taxa:** Veja a cotação atual e atualize-a.
