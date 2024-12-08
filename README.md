@@ -1,6 +1,7 @@
 **Conversor de Moedas**
 
 **Descrição**
+
 Este projeto é um sistema de conversão de moedas desenvolvido em Angular. Ele permite:
 
 Visualizar a cotação do dia.
@@ -47,24 +48,24 @@ zone.js                         0.15.0
 Para obter uma cópia local do projeto, siga os passos abaixo:
 
 **Clone o repositório:**
-''''
+```
 git clone https://github.com/seuusuario/conversor-moedas-angular.git
-''''
+```
 
 **Acesse o diretório do projeto:**
-''''
+```
 cd conversor-moedas-angular
-''''
+```
 
 **Instale as dependências:**
-''''
+```
 npm install
-''''
+```
 
 **Inicie o servidor de desenvolvimento:**
-''''
+```
 npm start
-''''
+```
 
 **Navegando pelo Projeto**
 Após executar o comando npm start, a aplicação estará disponível no navegador em:
@@ -79,45 +80,45 @@ Você poderá navegar pelas seguintes telas:
 
 **Testes Unitários**
 Para executar os testes unitários do projeto, utilize o comando:
-''''
+```
 ng test
-''''
+```
 Os testes são executados utilizando o Karma, o ambiente padrão de testes para Angular.
 
 **Subindo o Projeto para o GitHub**
 Caso deseje fazer o primeiro commit no GitHub, siga os comandos abaixo:
 
 **Inicialize o repositório:**
-''''
+```
 git init
-''''
+```
 
 **Adicione o arquivo README.md:**
-''''
+```
 echo "# conversor-moedas-angular" >> README.md
-''''
+```
 
 **Adicione os arquivos ao repositório:**
-''''
+```
 git add .
-''''
+```
 
 **Faça o primeiro commit:**
-''''
+```
 git commit -m "Primeiro commit"
-''''
+```
 
 **Configure a branch principal:**
-''''
+```
 git branch -M main
-''''
+```
 
 **Adicione o repositório remoto:**
-''''
+```
 git remote add origin https://github.com/seuusuario/conversor-moedas-angular.git
-''''
+```
 
 **Envie o projeto para o GitHub:**
-''''
+```
 git push -u origin main
-''''
+```
