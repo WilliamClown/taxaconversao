@@ -21,7 +21,8 @@ Atualizar a taxa de conversão entre as moedas.
 - Exportar dados do histórico para CSV ✔️
 - Adicionar casos de testes unitários para os componentes principais ✔️
   
-**Requisitos****
+**Requisitos**
+
 Para rodar esta aplicação, você precisará dos seguintes requisitos:
 
 Angular CLI: versão 19.0.3
@@ -74,9 +75,13 @@ URL Local: http://localhost:4200
 Você poderá navegar pelas seguintes telas:
 
 **1. Consulta de Taxa:** Veja a cotação atual e atualize-a.
+
 **2. Conversão de Moeda:** Realize a conversão entre as moedas disponíveis.
+
 **3. Registro de Transação:** Registre uma nova transação de conversão.
+
 **4. Histórico de Transações:** Filtre e visualize o histórico de transações realizadas.
+
 
 **Testes Unitários**
 Para executar os testes unitários do projeto, utilize o comando:
