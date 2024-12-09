@@ -7,6 +7,9 @@
         <input matInput type="number" [(ngModel)]="novaTaxa" />
       </mat-form-field>
     </div>
+    <div *ngIf="mensagemErro" class="erro">
+        {{ mensagemErro }}
+    </div>
     <div class="modal-actions">
       <button mat-button color="warn" (click)="fechar()">Cancelar</button>
       <button mat-raised-button color="primary" (click)="salvar()">Atualizar</button>

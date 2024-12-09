@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class AtualizarTaxaModalComponent {
   novaTaxa: number = 0;
+  mensagemErro: string | null = null; // Mensagem de erro para exibição
 
   constructor(private dialogRef: MatDialogRef<AtualizarTaxaModalComponent>) {}
 
@@ -32,7 +33,7 @@ export class AtualizarTaxaModalComponent {
     if (this.novaTaxa > 0) {
       this.dialogRef.close(this.novaTaxa); // Envia a nova taxa ao componente pai
     } else {
-      alert('Por favor, insira uma taxa válida.');
+      this.mensagemErro = 'Por favor, insira uma taxa válida.'; // Define a mensagem de erro
     }
   }
 }

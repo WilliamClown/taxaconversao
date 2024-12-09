@@ -93,3 +93,15 @@
   transform: translateY(1px); /* Reduz a elevação */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra menor */
 }
+
+.erro {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.confirmado {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}

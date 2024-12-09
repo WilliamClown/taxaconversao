@@ -35,4 +35,10 @@ describe('AtualizarTaxaModalComponent', () => {
     component.salvar();
     expect(console.log).toHaveBeenCalledWith('Salvando nova taxa:', 3.5);
   });
+
+  it('deve exibir uma mensagem de erro se a taxa for inválida', () => {
+    component.novaTaxa = -1; // Taxa inválida
+    component.salvar();
+    expect(component.mensagemErro).toBe('Por favor, insira uma taxa válida.');
+  });
 });

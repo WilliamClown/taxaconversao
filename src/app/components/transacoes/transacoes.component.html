@@ -46,6 +46,10 @@
         </div>
       </form>
     </mat-card-content>
+    <div *ngIf="mensagemErro" class="erro">
+      {{ mensagemErro }}
+    </div>
+    
     <mat-card-actions class="transaction-card-actions">
       <button
         mat-raised-button

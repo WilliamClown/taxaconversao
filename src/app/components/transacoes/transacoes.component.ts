@@ -25,6 +25,7 @@ export class TransacoesComponent {
   moedaOrigem = 'Ouro Real';
   moedaDestino = 'Tibar';
   valorOrigem: number | null = null;
+  mensagemErro: string | null = null; // Mensagem de erro para exibição
 
   constructor(private transacaoService: TransacaoService) {}
 
@@ -32,12 +33,12 @@ export class TransacoesComponent {
     const valor = Number(this.valorOrigem);
 
     if (isNaN(valor) || valor <= 0) {
-      alert('Por favor, insira um valor válido maior que zero.');
+      this.mensagemErro = 'Por favor, insira um valor válido maior que zero.'; 
       return;
     }
 
     if (this.moedaOrigem === this.moedaDestino) {
-      alert('Por favor, selecione moedas diferentes.');
+      this.mensagemErro = 'Por favor, selecione moedas diferentes.'; 
       return;
     }
 
