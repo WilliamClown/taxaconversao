@@ -62,12 +62,13 @@ export class HistoricoComponent {
   }
 
   atualizarDados(): void {
-    this.dataSource.data = this.transacaoService.obterTransacoes();
+    const transacoes = this.transacaoService.obterTransacoes();
+    this.dadosOriginais = [...transacoes]; // Preserva os dados originais
+    this.dataSource.data = transacoes; // Define os dados no dataSource
     console.log('Dados atualizados no histórico:', this.dataSource.data);
   }
 
   aplicarFiltros(): void {
-    // Filtra os dados com base nos critérios
     const dadosFiltrados = this.dadosOriginais.filter((transacao: any) => {
       const atendeMoedaOrigem =
         !this.filtroMoedaOrigem || transacao.origem === this.filtroMoedaOrigem;
@@ -75,12 +76,12 @@ export class HistoricoComponent {
         !this.filtroMoedaDestino || transacao.destino === this.filtroMoedaDestino;
       const atendeData =
         !this.filtroData ||
-        new Date(transacao.dataHora).toDateString() === this.filtroData.toDateString();
+        new Date(transacao.dataHora).getTime() === this.filtroData.getTime();
       const atendeValorMinimo =
-        this.filtroValorMinimo === null || transacao.valor >= this.filtroValorMinimo;
+        this.filtroValorMinimo == null || transacao.valor >= this.filtroValorMinimo;
       const atendeValorMaximo =
-        this.filtroValorMaximo === null || transacao.valor <= this.filtroValorMaximo;
-
+        this.filtroValorMaximo == null || transacao.valor <= this.filtroValorMaximo;
+  
       return (
         atendeMoedaOrigem &&
         atendeMoedaDestino &&
@@ -89,15 +90,14 @@ export class HistoricoComponent {
         atendeValorMaximo
       );
     });
-
-    // Atualiza o DataSource com os dados filtrados
+  
     this.dataSource.data = dadosFiltrados;
-
-    // Reseta o paginador para a primeira página após aplicar os filtros
+  
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
+  
 
   abrirDetalhes(transacao: any): void {
     this.dialog.open(HistoricoDetalhesModalComponent, {

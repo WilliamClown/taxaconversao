@@ -54,6 +54,7 @@ export class TransacoesComponent {
     );
 
     alert('Transação registrada com sucesso!');
+    this.mensagemErro = ''; 
     console.log('Nova transação registrada:', {
       origem: this.moedaOrigem,
       destino: this.moedaDestino,
